@@ -31,14 +31,6 @@ variable "subnets" {
   description = "subnets id"
 }
 
-# variable "public_subnet_az1_id" {
-#   type = string
-# }
-
-# variable "public_subnet_az2_id" {
-#   type = string
-# }
-
 variable "ami_type" {
   type    = string
   default = "AL2_x86_64"
@@ -59,4 +51,10 @@ variable "disk_size" {
 variable "instance_types" {
   type    = string
   default = "t3a.medium"
+}
+
+variable "cluster_addons" {
+  description = "Names of eks add-on to grant the cluster"
+  type        = set(string)
+  default     = ["kube-proxy", "vpc-cni", "coredns", "aws-ebs-csi-driver"]
 }

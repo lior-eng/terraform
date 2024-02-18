@@ -47,3 +47,10 @@ resource "aws_eks_node_group" "node_group" {
     var.node_policy_cni
   ]
 }
+
+resource "aws_eks_addon" "addons" {
+  for_each     = var.cluster_addons
+  addon_name   = each.value
+  cluster_name = aws_eks_cluster.cluster.name
+  depends_on   = [aws_eks_node_group.node_group]
+}

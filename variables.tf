@@ -50,11 +50,6 @@ variable "node_role_name" {
 }
 
 ################ eks ################
-# variable "subnets" {
-#   type        = list(string)
-#   description = "subnets id"
-# }
-
 variable "cluster_name" {
   type = string
 }
@@ -81,19 +76,3 @@ variable "instance_types" {
   type    = string
   default = "t3a.medium"
 }
-
-# variable "cluster_policy" {
-#   type = string
-# }
-
-# variable "node_policy_worker_node" {
-#   type = string
-# }
-
-# variable "node_policy_ecr" {
-#   type = string
-# }
-
-# variable "node_policy_cni" {
-#   type = string
-# }
