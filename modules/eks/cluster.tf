@@ -44,7 +44,8 @@ resource "aws_eks_node_group" "node_group" {
   depends_on = [
     var.node_policy_worker_node,
     var.node_policy_ecr,
-    var.node_policy_cni
+    var.node_policy_cni,
+    var.node_policy_ebs
   ]
 }
 

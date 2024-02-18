@@ -49,3 +49,8 @@ resource "aws_iam_role_policy_attachment" "amazonaws_eks_cni_policy_attachment" 
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"
   role       = aws_iam_role.eks_node_role.name
 }
+
+resource "aws_iam_role_policy_attachment" "eks_nodes_ebs_access" {
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy"
+  role       = aws_iam_role.eks_node_role.name
+}

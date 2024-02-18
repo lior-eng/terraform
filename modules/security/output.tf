@@ -21,3 +21,7 @@ output "node_policy_ecr" {
 output "node_policy_cni" {
   value = aws_iam_role_policy_attachment.amazonaws_eks_cni_policy_attachment
 }
+
+output "node_policy_ebs" {
+  value = aws_iam_role_policy_attachment.eks_nodes_ebs_access
+}

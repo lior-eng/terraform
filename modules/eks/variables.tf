@@ -18,6 +18,10 @@ variable "node_policy_cni" {
   # type = string
 }
 
+variable "node_policy_ebs" {
+  
+}
+
 variable "cluster_role_arn" {
   type = string
 }
