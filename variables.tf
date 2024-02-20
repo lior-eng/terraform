@@ -69,10 +69,14 @@ variable "disk_size" {
   type        = number
   default     = 20
   description = "size in GiB"
-
 }
 
 variable "instance_types" {
   type    = string
   default = "t3a.medium"
+}
+
+################ k8s ################
+variable "repository_url" {
+  type = string
 }

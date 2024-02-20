@@ -15,3 +15,6 @@ node_role_name    = "lior-levi-eks_node_role"
 
 ############### eks ################
 cluster_name = "commercial-store"
+
+############### k8s ################
+repository_url = "git@github.com:lior-eng/gitops.git"

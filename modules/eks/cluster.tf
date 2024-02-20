@@ -8,8 +8,6 @@ resource "aws_eks_cluster" "cluster" {
     # endpoint_public_access  = true
 
     subnet_ids = var.subnets
-    # var.public_subnet_az1_id,
-    # var.public_subnet_az2_id
 
   }
   depends_on = [
@@ -22,8 +20,6 @@ resource "aws_eks_node_group" "node_group" {
   node_group_name = "node_group"
   node_role_arn   = var.node_role_arn
   subnet_ids      = var.subnets
-  # var.public_subnet_az1_id,
-  # var.public_subnet_az2_id
 
   scaling_config {
     desired_size = 3
