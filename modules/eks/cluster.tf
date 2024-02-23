@@ -4,9 +4,6 @@ resource "aws_eks_cluster" "cluster" {
   role_arn = var.cluster_role_arn ### should check
 
   vpc_config {
-    # endpoint_private_access = false
-    # endpoint_public_access  = true
-
     subnet_ids = var.subnets
 
   }

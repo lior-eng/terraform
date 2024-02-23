@@ -19,7 +19,7 @@ resource "kubernetes_secret" "postgresql_secret" {
     "postgres-repl-password"  = "" #jsondecode(data.aws_secretsmanager_secret_version.postgresql_db_current.secret_string)["postgres-repl-password"]
   }
 }
-
+///// add region to var and rest of changeable args
 data "aws_secretsmanager_secret" "argocd_ssh_key" {
   arn = "arn:aws:secretsmanager:us-east-1:644435390668:secret:argocd-key-FmBgGN"
 }
@@ -33,7 +33,7 @@ resource "kubernetes_secret" "argocd_ssh_key" {
   metadata {
     name      = "argocd-ssh-key"
     namespace = "argocd"
-    
+
     labels = {
       "argocd.argoproj.io/secret-type" = "repository"
     }

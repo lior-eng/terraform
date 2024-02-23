@@ -73,7 +73,7 @@ variable "disk_size" {
 
 variable "instance_types" {
   type    = string
-  default = "t3a.medium"
+  default = "t3a.large"
 }
 
 ################ k8s ################

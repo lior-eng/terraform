@@ -12,20 +12,6 @@ variable "public_subnets_number" {
   description = "number of subnets in VPC"
 }
 
-# variable "subnets" {
-#   type        = list(string)
-#   description = "subnets id"
-# }
-
-
-# variable "public_subnet_az1_cidr" {
-#   type = string
-# }
-
-# variable "public_subnet_az2_cidr" {
-#   type = string
-# }
-
 variable "excluded_azs" {
   description = "Avaliability zones to ignore (e.g. use1-az3 can't reside eks subnets)"
   type        = list(string)

@@ -54,11 +54,11 @@ variable "disk_size" {
 
 variable "instance_types" {
   type    = string
-  default = "t3a.medium"
+  default = "t3a.large"
 }
 
 variable "cluster_addons" {
   description = "Names of eks add-on to grant the cluster"
   type        = set(string)
-  default     = ["kube-proxy", "vpc-cni", "coredns", "aws-ebs-csi-driver"]
-}
+  default     = ["kube-proxy", "vpc-cni", "coredns", "aws-ebs-csi-driver"]  
+} //aws-ebs-csi-driver is creating the storage class is needed for pvc and pv show check more.
