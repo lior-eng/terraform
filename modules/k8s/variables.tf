@@ -2,7 +2,7 @@ variable "repository_url" {
   type = string
 }
 
-variable "main_app_path" {
+variable "parent-application" {
   type = string
   description = "Path to parent application file"
 }

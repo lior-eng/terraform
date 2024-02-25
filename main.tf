@@ -32,5 +32,5 @@ module "eks" {
 module "k8s" {
   source = "./modules/k8s"
   repository_url = var.repository_url
-  main_app_path = "${path.module}/manifests/main_app_path.yaml"
+  parent-application = "${path.module}/manifests/parent-application.yaml"
 }
