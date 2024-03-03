@@ -30,7 +30,11 @@ module "eks" {
 }
 
 module "k8s" {
-  source = "./modules/k8s"
-  repository_url = var.repository_url
-  parent-application = "${path.module}/manifests/parent-application.yaml"
+  source                  = "./modules/k8s"
+  repository_url          = var.repository_url
+  parent-application      = "${path.module}/manifests/parent-application.yaml"
+  region                  = var.region
+  account_id              = var.account_id
+  postgres_db_secret_name = var.postgres_db_secret_name
+  argocd_ssh_secret_name  = var.argocd_ssh_secret_name
 }

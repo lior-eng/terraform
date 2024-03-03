@@ -20,7 +20,6 @@ terraform {
     }
   }
   
-
   backend "s3" {
     bucket         = "lior-levi-state"
     key            = "protfolio/terraform.tfstate"
@@ -30,14 +29,13 @@ terraform {
 
   }
 }
+
 provider "aws" {
-  # region = "us-east-1"
   region = var.region
 
   default_tags {
     tags = var.common_tags
   }
-
 }
 
 provider "kubernetes" {
@@ -65,6 +63,7 @@ provider "helm" {
 
 provider kubectl {
   host                   = module.eks.cluster_endpoint
+  //standard security practice to prevent Man-In-The-Middle
   cluster_ca_certificate = base64decode(module.eks.cluster_certificate_authority_data)
   exec {
     api_version = "client.authentication.k8s.io/v1beta1"

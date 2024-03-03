@@ -9,6 +9,7 @@ variable "common_tags" {
 
 variable "region" {
   type = string
+  description = "AWS region"
 }
 
 ################ network ################
@@ -79,4 +80,21 @@ variable "instance_types" {
 ################ k8s ################
 variable "repository_url" {
   type = string
+}
+
+## region declared above in general section 
+
+variable "account_id" {
+  type        = string
+  description = "AWS Account ID"
+}
+
+variable "postgres_db_secret_name" {
+  type        = string
+  description = "Name of the secret in AWS Secrets Manager"
+}
+
+variable "argocd_ssh_secret_name" {
+  type        = string
+  description = "Name of the secret in AWS Secrets Manager"
 }

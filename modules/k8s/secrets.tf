@@ -1,5 +1,7 @@
 data "aws_secretsmanager_secret" "postgres_db_cred_secret" {
-  arn = "arn:aws:secretsmanager:us-east-1:644435390668:secret:postgres-secret-UWgQIy"
+  # arn = "arn:aws:secretsmanager:us-east-1:644435390668:secret:postgres-secret-UWgQIy"
+  arn = "arn:aws:secretsmanager:${var.region}:${var.account_id}:secret:${var.postgres_db_secret_name}"
+
 }
 
 data "aws_secretsmanager_secret_version" "postgresql_db_current" {
@@ -13,15 +15,15 @@ resource "kubernetes_secret" "postgresql_secret" {
   }
 
   data = {
-    # "postgres-user-password"  = jsondecode(data.aws_secretsmanager_secret_version.postgresql_db_current.secret_string)["postgres-user-password"]
     "postgres-password"       = jsondecode(data.aws_secretsmanager_secret_version.postgresql_db_current.secret_string)["postgres-user-password"]
-    "postgres-admin-password" = "" #jsondecode(data.aws_secretsmanager_secret_version.postgresql_db_current.secret_string)["postgres-admin-password"]
-    "postgres-repl-password"  = "" #jsondecode(data.aws_secretsmanager_secret_version.postgresql_db_current.secret_string)["postgres-repl-password"]
+    "postgres-admin-password" = ""
+    "postgres-repl-password"  = ""
   }
 }
 ///// add region to var and rest of changeable args
 data "aws_secretsmanager_secret" "argocd_ssh_key" {
-  arn = "arn:aws:secretsmanager:us-east-1:644435390668:secret:argocd-key-FmBgGN"
+  # arn = "arn:aws:secretsmanager:us-east-1:644435390668:secret:argocd-key-FmBgGN"
+  arn = "arn:aws:secretsmanager:${var.region}:${var.account_id}:secret:${var.argocd_ssh_secret_name}"
 }
 
 data "aws_secretsmanager_secret_version" "argocd_ssh_key_current" {
