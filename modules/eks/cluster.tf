@@ -4,9 +4,9 @@ resource "aws_eks_cluster" "cluster" {
   role_arn = var.cluster_role_arn
 
   vpc_config {
-    subnet_ids = var.subnets
-
+    subnet_ids = concat(var.public_subnets, var.private_subnets)
   }
+
   depends_on = [
     var.cluster_policy
   ]
@@ -16,7 +16,7 @@ resource "aws_eks_node_group" "node_group" {
   cluster_name    = aws_eks_cluster.cluster.name
   node_group_name = "node_group"
   node_role_arn   = var.node_role_arn
-  subnet_ids      = var.subnets
+  subnet_ids      = var.private_subnets
 
   scaling_config {
     desired_size = var.node_group_desired_size
@@ -30,9 +30,7 @@ resource "aws_eks_node_group" "node_group" {
   force_update_version = false
   instance_types       = [var.instance_types]
 
-  # labels = {    *** node labels
-  #   "key" = "2"
-  # }
+  # labels = {} // optional to add taints
 
   depends_on = [
     var.node_policy_worker_node,

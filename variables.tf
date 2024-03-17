@@ -33,14 +33,6 @@ variable "public_subnets_number" {
   description = "number of subnets in VPC"
 }
 
-variable "public_subnet_az1_cidr" {
-  type = string
-}
-
-variable "public_subnet_az2_cidr" {
-  type = string
-}
-
 variable "excluded_azs" {
   description = "Avaliability zones to ignore (e.g. use1-az3 can't reside eks subnets)"
   type        = list(string)
@@ -50,7 +42,19 @@ variable "excluded_azs" {
 variable "public_ip_on_launch" {
   type        = bool
   default     = true
-  description = "public IP for ec2 in public subnets"
+  description = "public IP for ec2"
+}
+
+variable "private_subnets_number" {
+  type        = number
+  default     = 2
+  description = "number of private subnets in VPC"
+}
+
+variable "private_ip_on_launch" {
+  type        = bool
+  default     = false
+  description = "public IP for ec2"
 }
 
 ################ security ################
@@ -69,19 +73,19 @@ variable "cluster_name" {
 
 variable "node_group_desired_size" {
   type        = number
-  default     = 3
+  default     = 2
   description = "number of desired nodes"
 }
 
 variable "node_group_max_size" {
   type        = number
-  default     = 3
+  default     = 2
   description = "number of max nodes"
 }
 
 variable "node_group_min_size" {
   type        = number
-  default     = 3
+  default     = 2
   description = "number of min nodes"
 }
 

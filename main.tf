@@ -5,6 +5,9 @@ module "network" {
   public_subnets_number = var.public_subnets_number
   excluded_azs          = var.excluded_azs
   public_ip_on_launch   = var.public_ip_on_launch
+  #########
+  private_subnets_number = var.private_subnets_number
+  private_ip_on_launch   = var.private_ip_on_launch
 }
 
 module "security" {
@@ -26,7 +29,9 @@ module "eks" {
   node_policy_ebs         = module.security.node_policy_ebs
   cluster_role_arn        = module.security.cluster_role_arn
   node_role_arn           = module.security.node_role_arn
-  subnets                 = module.network.subnets
+  # subnets                 = module.network.subnets
+  public_subnets          = module.network.public_subnets  //new
+  private_subnets         = module.network.private_subnets //new
   ami_type                = var.ami_type
   capacity_type           = var.capacity_type
   disk_size               = var.disk_size

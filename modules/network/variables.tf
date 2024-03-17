@@ -9,7 +9,7 @@ variable "vpc_cidr" {
 variable "public_subnets_number" {
   type        = number
   default     = 2
-  description = "number of subnets in VPC"
+  description = "number of public subnets in VPC"
 }
 
 variable "excluded_azs" {
@@ -20,6 +20,18 @@ variable "excluded_azs" {
 
 variable "public_ip_on_launch" {
   type        = bool
+  default     = true
+  description = "public IP for ec2"
+}
+
+variable "private_subnets_number" {
+  type        = number
+  default     = 2
+  description = "number of private subnets in VPC"
+}
+
+variable "private_ip_on_launch" {
+  type        = bool
   default     = false
-  description = "public IP for ec2 in public subnets"
+  description = "public IP for ec2"
 }

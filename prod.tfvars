@@ -2,11 +2,9 @@
 region = "us-east-1"
 
 ################ network ################
-# region                 = "us-east-1"
+## region declared above in general section
 project_name           = "protfolio"
 vpc_cidr               = "10.0.0.0/16"
-public_subnet_az1_cidr = "10.0.0.0/24"
-public_subnet_az2_cidr = "10.0.1.0/24"
 excluded_azs           = ["use1-az3", "usw1-az2", "cac1-az3"]
 
 ################ security ################

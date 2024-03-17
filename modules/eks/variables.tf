@@ -6,19 +6,19 @@ variable "cluster_policy" {}
 
 variable "node_group_desired_size" {
   type        = number
-  default     = 3
+  default     = 2
   description = "number of desired nodes"
 }
 
 variable "node_group_max_size" {
   type        = number
-  default     = 3
+  default     = 2
   description = "number of max nodes"
 }
 
 variable "node_group_min_size" {
   type        = number
-  default     = 3
+  default     = 2
   description = "number of min nodes"
 }
 
@@ -38,9 +38,14 @@ variable "node_role_arn" {
   type = string
 }
 
-variable "subnets" {
+variable "public_subnets" {
   type        = list(string)
-  description = "subnets id"
+  description = "public subnets id"
+}
+
+variable "private_subnets" {
+  type        = list(string)
+  description = "private subnets id"
 }
 
 variable "ami_type" {
