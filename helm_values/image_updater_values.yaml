@@ -1,0 +1,6 @@
+config:
+  registries:
+    - name: "AWS ECR"
+      api_url: "https://644435390668.dkr.ecr.us-east-1.amazonaws.com"
+      prefix: "644435390668.dkr.ecr.us-east-1.amazonaws.com"
+      credentials: "pullsecret:argocd/ecr-credentials"
