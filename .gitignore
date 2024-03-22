@@ -2,3 +2,5 @@
 .terraform*
 terraform.tfstate*
 errored.tfstate
+prod.tfvars
+helm_values
