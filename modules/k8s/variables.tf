@@ -26,3 +26,8 @@ variable "argocd_ssh_secret_name" {
   type        = string
   description = "Name of the secret in AWS Secrets Manager"
 }
+
+variable "ecr_credentials_secret_name" {
+  type        = string
+  description = "Name of the secret in AWS Secrets Manager"
+}

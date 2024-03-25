@@ -72,6 +72,7 @@ provider "kubectl" {
     args        = ["eks", "get-token", "--cluster-name", module.eks.cluster_name]
   }
 }
+
 ##### creating s3 bucket and dynamodb from terminal #####
 
 # resource "aws_s3_bucket" "terraform_state" {
